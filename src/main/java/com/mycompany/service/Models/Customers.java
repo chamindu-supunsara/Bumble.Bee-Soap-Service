@@ -13,6 +13,7 @@ public class Customers {
     private String cus_name;
     private String cus_email;
     private String password;
+    private boolean isValide;
 
     public Customers(String cus_id, String cus_name, String cus_email, String password) {
         this.cus_id = cus_id;
@@ -56,6 +57,14 @@ public class Customers {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isIsValide() {
+        return isValide;
+    }
+
+    public void setIsValide(boolean isValide) {
+        this.isValide = isValide;
     }
     
     

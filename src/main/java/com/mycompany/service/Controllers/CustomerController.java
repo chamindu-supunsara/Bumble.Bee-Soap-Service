@@ -7,6 +7,8 @@ package com.mycompany.service.Controllers;
 import com.mycompany.service.DBConnection;
 import com.mycompany.service.Models.Customers;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
@@ -33,5 +35,35 @@ public class CustomerController {
         }
          
         return false;
+    }
+    
+    public Customers Login(String id,String password){
+        
+        final Connection connection=DBConnection.getConnection();
+        String sql_query="SELECT*FROM customerregistor WHERE id=? and password=?";
+        Customers customer=null;
+        
+        
+        try{
+            PreparedStatement stmt = connection.prepareStatement(sql_query);
+            stmt.setString(1, id);
+            stmt.setString(2, password);
+            
+            ResultSet rs=stmt.executeQuery();
+            
+            while(rs.next()) {
+				
+				
+		customer = new Customers();
+		customer.setCus_id(id);
+		customer.setPassword(password);
+		customer.setIsValide(true);
+				
+		}
+            
+        }catch(Exception ex){
+            System.out.println("ERROR"+ex);
+        }
+        return customer;
     }
 }

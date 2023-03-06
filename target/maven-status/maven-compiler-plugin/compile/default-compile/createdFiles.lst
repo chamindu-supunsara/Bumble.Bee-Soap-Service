@@ -1,2 +1,8 @@
+com\mycompany\service\Models\Orders.class
 com\mycompany\service\DBConnection.class
 com\mycompany\service\StudentService.class
+com\mycompany\service\Controllers\CustomerController.class
+com\mycompany\service\Services\CustomerService.class
+com\mycompany\service\Models\Customers.class
+com\mycompany\service\Controllers\OrderController.class
+com\mycompany\service\Services\OrderService.class
