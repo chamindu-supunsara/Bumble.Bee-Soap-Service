@@ -6,6 +6,7 @@ package com.mycompany.service.Controllers;
 
 import com.mycompany.service.DBConnection;
 import com.mycompany.service.Models.Admin;
+import com.mycompany.service.Models.Customers;
 import com.mycompany.service.Models.Orders;
 import com.mycompany.service.Models.SalesDetails;
 import java.sql.Connection;
@@ -72,6 +73,26 @@ public class AdminController {
         }    
         return db;
     }
+     
+     public boolean customerUpdate(Customers customer) {
+        
+         Connection connection = DBConnection.getConnection(); 
+         
+         try {
+            
+            Statement statement = connection.createStatement();
+            int rows = statement.executeUpdate("UPDATE `customerregistor` SET `name` = "
+             + "'" + customer.getCus_name() + "', `email` = '" + customer.getCus_email() +  "', " + " `password` = '" + customer.getPassword() +"' WHERE (`id` = '"  + 
+            customer.getCus_id() + "')");
+            
+            return rows > 0;
+            
+        } catch (Exception ex){
+            System.out.println("ERROR"+" "+ex);
+        }
+         
+        return false;
+     }
      
      public boolean deleteCustomer(String id){
     Connection connection = DBConnection.getConnection(); 
