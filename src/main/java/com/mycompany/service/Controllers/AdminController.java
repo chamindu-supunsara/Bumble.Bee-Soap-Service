@@ -6,9 +6,13 @@ package com.mycompany.service.Controllers;
 
 import com.mycompany.service.DBConnection;
 import com.mycompany.service.Models.Admin;
+import com.mycompany.service.Models.Orders;
+import com.mycompany.service.Models.SalesDetails;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -44,5 +48,45 @@ public class AdminController {
             System.out.println("ERROR"+ex);
         }
         return admin;
+    }
+
+     public SalesDetails getSales (String id) {
+        SalesDetails db = null;
+                try {
+            Connection connection = DBConnection.getConnection();
+            Statement statement = connection.createStatement();
+            
+            ResultSet resultSet = statement.executeQuery("SELECT id, name, address, price, loan, birthday, plan FROM order WHERE id='" + id + "'");
+            
+            while(resultSet.next()) {
+                db = new SalesDetails(resultSet.getString("id"),  
+                          resultSet.getString("name"),
+                          resultSet.getString("address"),
+                          resultSet.getString("price"),
+                          resultSet.getString("loan"),
+                          resultSet.getString("birthday"),
+                          resultSet.getString("plan"));                
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }    
+        return db;
+    }
+     
+     public boolean deleteCustomer(String id){
+    Connection connection = DBConnection.getConnection(); 
+     
+        try{
+          Statement stmt=connection.createStatement();
+           
+          int rows=stmt.executeUpdate(" DELETE FROM `customerregistor` WHERE "
+           + "(`id`='"+id+"');");
+      		
+	    return rows>0;
+	
+        }catch(SQLException ex){
+            System.out.println(ex.getMessage());
+        }
+        return false;
     }
 }

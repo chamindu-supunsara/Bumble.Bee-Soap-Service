@@ -6,6 +6,8 @@ package com.mycompany.service.Services;
 
 import com.mycompany.service.Controllers.AdminController;
 import com.mycompany.service.Models.Admin;
+import com.mycompany.service.Models.Orders;
+import com.mycompany.service.Models.SalesDetails;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -25,6 +27,17 @@ public class AdminsService {
     @WebParam(name = "password")String password)  {
     AdminController adminOpe = new AdminController();
     return adminOpe.Login(id, password);
+    }
     
+     @WebMethod(operationName = "getSales")
+     public SalesDetails getSales (@WebParam(name = "id") String id) {
+     AdminController adminOpe = new AdminController();
+     return adminOpe.getSales(id);
+    }
+     
+     @WebMethod(operationName = "deleteCustomer")
+    public boolean deleteCustomer(@WebParam(name="id") String id){
+    AdminController adminOpe = new AdminController();
+    return adminOpe.deleteCustomer(id);
     }
 }
