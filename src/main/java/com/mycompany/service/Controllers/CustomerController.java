@@ -25,8 +25,8 @@ public class CustomerController {
          
             Statement stam=connection.createStatement();
             int rows=stam.executeUpdate((" INSERT INTO `customerregistor`(`id`,"
-              + " `name`, `email`, `password`) VALUES ('"+customer.getCus_id()+"','"
-            +customer.getCus_name()+"','"+customer.getCus_email())+"','"+customer.getPassword()+"')");
+              + " `name`, `email`, `password`) VALUES ('"+customer.getId()+"','"
+            +customer.getName()+"','"+customer.getEmail())+"','"+customer.getPassword()+"')");
             
            return rows>0;
             
@@ -36,6 +36,22 @@ public class CustomerController {
          
         return false;
     }
+    
+    public boolean customerUpdate(Customers customer) {
+        
+         Connection connection = DBConnection.getConnection(); 
+         try {   
+            Statement statement = connection.createStatement();
+            int rows = statement.executeUpdate("UPDATE `customerregistor` SET  `name` = '"
+                    + customer.getName() +  "', `email` = '" + customer.getEmail() +"', `password` = '" + customer.getPassword()+"' WHERE (`id` = '"  + customer.getId() + "')");
+            
+            return rows > 0;
+            
+        } catch (Exception ex){
+            System.out.println("ERROR"+" "+ex);
+        }  
+        return false;
+     }
     
     public Customers Login(String id,String password){
         
@@ -55,7 +71,7 @@ public class CustomerController {
 				
 				
 		customer = new Customers();
-		customer.setCus_id(id);
+		customer.setId(id);
 		customer.setPassword(password);
 		customer.setIsValide(true);
 				

@@ -23,8 +23,13 @@ public class CustomerService {
     @WebMethod(operationName = "registerCustomer")
     public boolean Cus_reg(@WebParam(name="customer")Customers customer) {
         CustomerController cus_controller=new CustomerController();
-        return cus_controller.customerRegister(customer);
-        
+        return cus_controller.customerRegister(customer);    
+    }
+    
+    @WebMethod(operationName = "update")
+    public boolean update(@WebParam(name="customers")Customers customer) {
+    CustomerController cus_update = new CustomerController();
+    return cus_update.customerUpdate(customer);
     }
     
     @WebMethod(operationName = "loginCustomer")

@@ -9,46 +9,47 @@ package com.mycompany.service.Models;
  * @author A V I A N
  */
 public class Customers {
-    private String cus_id;
-    private String cus_name;
-    private String cus_email;
+    private String id;
+    private String name;
+    private String email;
     private String password;
     private boolean isValide;
 
-    public Customers(String cus_id, String cus_name, String cus_email, String password) {
-        this.cus_id = cus_id;
-        this.cus_name = cus_name;
-        this.cus_email = cus_email;
+    public Customers(String id, String name, String email, String password, boolean isValide) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
         this.password = password;
+        this.isValide = isValide;
     }
 
     public Customers() {
     }
+
     
     
-
-    public String getCus_id() {
-        return cus_id;
+    public String getId() {
+        return id;
     }
 
-    public void setCus_id(String cus_id) {
-        this.cus_id = cus_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getCus_name() {
-        return cus_name;
+    public String getName() {
+        return name;
     }
 
-    public void setCus_name(String cus_name) {
-        this.cus_name = cus_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getCus_email() {
-        return cus_email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCus_email(String cus_email) {
-        this.cus_email = cus_email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -66,6 +67,6 @@ public class Customers {
     public void setIsValide(boolean isValide) {
         this.isValide = isValide;
     }
-    
+
     
 }

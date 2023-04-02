@@ -74,16 +74,15 @@ public class AdminController {
         return db;
     }
      
-     public boolean customerUpdate(Customers customer) {
+     /*public boolean customerUpdate(Customers customer) {
         
          Connection connection = DBConnection.getConnection(); 
          
          try {
             
             Statement statement = connection.createStatement();
-            int rows = statement.executeUpdate("UPDATE `customerregistor` SET `name` = "
-             + "'" + customer.getCus_name() + "', `email` = '" + customer.getCus_email() +  "', " + " `password` = '" + customer.getPassword() +"' WHERE (`id` = '"  + 
-            customer.getCus_id() + "')");
+            int rows = statement.executeUpdate("UPDATE `customerregistor` SET  `name` = '"
+                    + customer.getName() +  "', `email` = '" + customer.getEmail() +"', `password` = '" + customer.getPassword()+"' WHERE (`id` = '"  + customer.getId() + "')");
             
             return rows > 0;
             
@@ -92,7 +91,8 @@ public class AdminController {
         }
          
         return false;
-     }
+     }*/
+     
      
      public boolean deleteCustomer(String id){
     Connection connection = DBConnection.getConnection(); 
