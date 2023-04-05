@@ -36,6 +36,22 @@ public class OrderController {
         return false;
     }
     
+    public boolean orderUpdate(Orders order) {
+        
+         Connection connection = DBConnection.getConnection(); 
+         try {   
+            Statement statement = connection.createStatement();
+            int rows = statement.executeUpdate("UPDATE `order` SET  `name` = '"
+                    + order.getOrder_name() +  "', `address` = '" + order.getOrder_address() +"', `price` = '" + order.getOrder_price() + "', `loan` = '" + order.getOrder_loan() + "', `birthday` = '" + order.getOrder_birthday() + "', `plan` = '" + order.getOrder_plan() + "' WHERE (`id` = '"  + order.getOrder_id() + "')");
+            
+            return rows > 0;
+            
+        } catch (Exception ex){
+            System.out.println("ERROR"+" "+ex);
+        }  
+        return false;
+     }
+    
      public boolean deleteOrder(String id){
     Connection connection = DBConnection.getConnection(); 
      

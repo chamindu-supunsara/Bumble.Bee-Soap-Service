@@ -32,4 +32,10 @@ public class OrderService {
     OrderController ord_controller = new OrderController();
     return ord_controller.deleteOrder(id);
     }
+    
+    @WebMethod(operationName = "updateOrders")
+    public boolean updateOrders(@WebParam(name="order")Orders order) {
+    OrderController cus_update = new OrderController();
+    return cus_update.orderUpdate(order);
+    }
 }
