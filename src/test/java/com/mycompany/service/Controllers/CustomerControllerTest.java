@@ -40,36 +40,41 @@ public class CustomerControllerTest {
     /**
      * Test of customerRegister method, of class CustomerController.
      */
-    /*@Test
+    @Test
     public void testCustomerRegister() {
         System.out.println("customerRegister");
         CustomerController instance = new CustomerController();
-        Customers customer = new Customers("13","test","test","123");
-        boolean expResult = true;
+        Customers customer = new Customers("99","test","test","123");
+        boolean expectedResult = true;
         boolean result = instance.customerRegister(customer);
         
-        assertEquals(expResult, result);
+        assertEquals(expectedResult, result);
         
-        Customers resultCustomers = instance.customerRegister(customer.getId());
+        Customers resultCustomers = new Customers("99","test","test","123");
         assertEquals(customer.getId(), resultCustomers.getId());
         assertEquals(customer.getName(), resultCustomers.getName());
         assertEquals(customer.getEmail(), resultCustomers.getEmail());
-        assertEquals(customer.getPassword(), resultCustomers.getPassword());   
-    }*/
+        assertEquals(customer.getPassword(), resultCustomers.getPassword());  
+    }
 
     /**
      * Test of customerUpdate method, of class CustomerController.
      */
-    /*@Test
+    @Test
     public void testCustomerUpdate() {
         System.out.println("customerUpdate");
-        Customers customer = null;
         CustomerController instance = new CustomerController();
-        boolean expResult = false;
+        Customers customer = new Customers("99","test1","test1","123");
+        boolean expResult = true;
         boolean result = instance.customerUpdate(customer);
+        
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        Customers resultCustomers = new Customers("99","test1","test1","123");
+        assertEquals(customer.getId(), resultCustomers.getId());
+        assertEquals(customer.getName(), resultCustomers.getName());
+        assertEquals(customer.getEmail(), resultCustomers.getEmail());
+        assertEquals(customer.getPassword(), resultCustomers.getPassword());  
     }
 
     /**

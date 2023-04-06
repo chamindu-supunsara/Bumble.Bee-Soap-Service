@@ -5,6 +5,7 @@
 package com.mycompany.service.Controllers;
 
 import com.mycompany.service.Models.Admin;
+import com.mycompany.service.Models.Customers;
 import com.mycompany.service.Models.SalesDetails;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -56,7 +57,7 @@ public class AdminControllerTest {
     /**
      * Test of getSales method, of class AdminController.
      */
-    /*@Test
+    @Test
     public void testGetSales() {
         System.out.println("getSales");
         String id = "";
@@ -64,19 +65,27 @@ public class AdminControllerTest {
         SalesDetails expResult = null;
         SalesDetails result = instance.getSales(id);
         assertEquals(expResult, result);
-    }*/
+    }
 
     /**
      * Test of deleteCustomer method, of class AdminController.
      */
-    /*@Test
+    @Test
     public void testDeleteCustomer() {
         System.out.println("deleteCustomer");
-        String id = "";
         AdminController instance = new AdminController();
-        boolean expResult = false;
+        String id = "99";
+        Customers customer = new Customers("99","test1","test1","123");
+        boolean expResult = true;
         boolean result = instance.deleteCustomer(id);
+        
         assertEquals(expResult, result);
-    }*/
+        
+        Customers resultCustomers = new Customers("99","test1","test1","123");
+        assertEquals(customer.getId(), resultCustomers.getId());
+        assertEquals(customer.getName(), resultCustomers.getName());
+        assertEquals(customer.getEmail(), resultCustomers.getEmail());
+        assertEquals(customer.getPassword(), resultCustomers.getPassword());
+    }
     
 }
