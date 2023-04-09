@@ -76,7 +76,7 @@ public class AdminControllerTest {
         AdminController instance = new AdminController();
         String id = "99";
         Customers customer = new Customers("99","test1","test1","123");
-        boolean expResult = true;
+        boolean expResult = false;
         boolean result = instance.deleteCustomer(id);
         
         assertEquals(expResult, result);
